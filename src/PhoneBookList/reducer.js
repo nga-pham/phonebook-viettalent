@@ -1,5 +1,15 @@
-import { CHOOSE } from "../data/constant";
+import { CHOOSE, ADD } from "../data/constant";
 import data from "../data/response.json";
+
+const addItemReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADD:
+      return action.new_item;
+
+    default:
+      return state;
+  }
+};
 
 const listReducer = (state = { key: 0, data: data }, action) => {
   switch (action.type) {
@@ -9,6 +19,12 @@ const listReducer = (state = { key: 0, data: data }, action) => {
         data: state.data,
       };
 
+    case ADD:
+      return {
+        ...state,
+        // addItemReducer({}, action)
+        data: [...data, addItemReducer({}, action)],
+      };
     default:
       return state;
   }

@@ -1,4 +1,4 @@
-import { CHOOSE } from "../data/constant";
+import { CHOOSE, ADD } from "../data/constant";
 
 const chooseItem = (key) => {
   return {
@@ -7,4 +7,11 @@ const chooseItem = (key) => {
   };
 };
 
-export { chooseItem };
+const addNewItem = (new_item) => {
+  return {
+    type: ADD,
+    new_item,
+  };
+};
+
+export { chooseItem, addNewItem };

@@ -77,6 +77,10 @@ class _FormInsert extends Component {
     });
   };
 
+  handleSubmit = () => {
+    this.handleClose();
+  };
+
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -176,7 +180,11 @@ class _FormInsert extends Component {
           </Grid>
           <Divider light />
           <Grid item xs={12}>
-            <Button className={classes.buttonSubmit} color="primary">
+            <Button
+              className={classes.buttonSubmit}
+              color="primary"
+              onClick={this.handleSubmit}
+            >
               Xong
             </Button>
           </Grid>
@@ -210,9 +218,8 @@ class _FormInsert extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { key, data } = state;
+  const { data } = state;
   return {
-    key: 1,
     data,
   };
 };
