@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
   listItemText: {
     color: "#000",
     fontSize: "2em",
-    // borderBottom: "1px solid #FF00FF",
   },
 }));
 

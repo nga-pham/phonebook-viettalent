@@ -1,30 +1,13 @@
-import React, { Component } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Collapse from "@material-ui/core/Collapse";
+import { List, ListItemText } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import { red } from "@material-ui/core/colors";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import Paper from "@material-ui/core/Paper";
-import { connect } from "react-redux";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import { List, ListItem, ListItemText } from "@material-ui/core";
-import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 const styles = {
   root: {
@@ -42,6 +25,21 @@ const styles = {
   listItemContent: {
     fontSize: "2em",
   },
+  tableCellLabel: {
+    borderBottom: "none",
+    paddingBottom: 0,
+    fontSize: "1.1em",
+    color: "rgba(0, 0, 0, 0.6)",
+  },
+  tableCellContent: {
+    borderBottom: "none",
+    paddingBottom: 0,
+    fontSize: "1.1em",
+  },
+  avatar: {
+    height: "90px",
+    width: "90px",
+  },
 };
 
 const createData = (label, content) => {
@@ -52,7 +50,6 @@ const createData = (label, content) => {
 };
 
 const rows = [
-  createData("name", "Hai"),
   createData("Di động", "3646"),
   createData("Công việc", "6364"),
   createData("Iphone", "42636"),
@@ -81,35 +78,72 @@ class _ItemDetailCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Paper elevation={0} className={classes.root}>
-        <CardHeader
-          avatar={
-            <Avatar
-              alt="name"
-              src="https://i.insider.com/5dbc7a5184991317e30e8b4b?width=900&format=jpeg&auto=webp"
-              className={classes.large}
-            />
-          }
-          title="Name"
-        />
+      <Grid container>
+        <Grid item xs={12} className={classes.root}>
+          <Grid container>
+            <Grid item xs={2}>
+              <Avatar
+                alt="name"
+                src="https://i.insider.com/5dbc7a5184991317e30e8b4b?width=900&format=jpeg&auto=webp"
+                className={classes.avatar}
+              />
+            </Grid>
+            <Grid item xs={10}>
+              <h2>Name</h2>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container>
+            <List>
+              <ListItemText>
+                <TableBody>
+                  {rows.map((row, index) => (
+                    <TableRow key={index}>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        className={classes.tableCellLabel}
+                      >
+                        {row.label}
+                      </TableCell>
 
-        <CardContent>
-          <List>
-            <ListItemText>
-              <TableBody>
-                {rows.map((row, index) => (
-                  <TableRow key={index}>
-                    <TableCell component="th" scope="row">
-                      {row.label}
-                    </TableCell>
-                    <TableCell align="left">{row.content}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </ListItemText>
-          </List>
-        </CardContent>
-      </Paper>
+                      <TableCell
+                        align="left"
+                        className={classes.tableCellContent}
+                      >
+                        {row.content}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </ListItemText>
+            </List>
+          </Grid>
+        </Grid>
+        <Divider />
+        <Grid item xs={12}>
+          <Grid container>
+            <TableBody>
+              <TableRow>
+                <TableCell
+                  component="th"
+                  scope="row"
+                  className={classes.tableCellLabel}
+                >
+                  Ghi chú
+                </TableCell>
+
+                <TableCell
+                  align="left"
+                  className={classes.tableCellContent}
+                ></TableCell>
+              </TableRow>
+            </TableBody>
+          </Grid>
+        </Grid>
+        <Divider />
+      </Grid>
     );
   }
 }
