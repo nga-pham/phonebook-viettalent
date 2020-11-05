@@ -11,6 +11,7 @@ import AddIcon from "@material-ui/icons/Add";
 import CameraAlt from "@material-ui/icons/CameraAlt";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addNewItem } from "./action";
 
 const styles = (theme) => {
   return {
@@ -69,6 +70,7 @@ class _FormInsert extends Component {
     this.setState({
       open: true,
       new_item: {
+        avatar: "",
         firstName: "",
         lastName: "",
         company: "",
@@ -98,8 +100,18 @@ class _FormInsert extends Component {
   // input data here is slightly different with data from store
   // This function is used to convert data to the same format with data from store
   prepareToSubmit = (data) => {
-    const { firstName, lastName, company, mobile, work, iphone, note } = data;
+    const {
+      avatar,
+      firstName,
+      lastName,
+      company,
+      mobile,
+      work,
+      iphone,
+      note,
+    } = data;
     return {
+      avatar,
       name: firstName + " " + lastName,
       company,
       mobile,
@@ -113,7 +125,7 @@ class _FormInsert extends Component {
     this.handleClose();
     const { new_item } = this.state;
     const data_to_submit = this.prepareToSubmit(new_item);
-    console.log(data_to_submit);
+    this.props.addNewItem(data_to_submit);
   };
 
   render() {
@@ -263,17 +275,16 @@ class _FormInsert extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  const { data } = state;
+const mapDispatchToProps = (dispatch) => {
   return {
-    data,
+    // dispatching plain actions
+    addNewItem: (data_to_submit) => dispatch(addNewItem(data_to_submit)),
   };
 };
 
 const FormInsert = connect(
-  mapStateToProps,
-  null
+  null,
+  mapDispatchToProps
 )(withStyles(styles)(_FormInsert));
 
 export default FormInsert;
