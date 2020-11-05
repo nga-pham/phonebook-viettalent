@@ -2,6 +2,7 @@
     {
         "avatar": "https://i.insider.com/5dbc7a5184991317e30e8b4b?width=900&format=jpeg&auto=webp",
         "name": "Hiếu",
+        "company": "viettalent",
         "mobile": "+8412345678",
         "work": "+8412345678",
         "iphone": "+8412345678",
@@ -10,6 +11,8 @@
     {
         "avatar": "https://static.toiimg.com/photo/76729750.cms",
         "name": "Nhật",
+        "company": "viettalent",
+
         "mobile": "+842536346",
         "work": "+8436465465",
         "iphone": "+84646464564",
@@ -18,6 +21,8 @@
     {
         "avatar": "https://www.news4jax.com/resizer/b89RYEm5oAgzxJxWIGoyLJ9lZu8=/960x960/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/X462YQ4HIJEGHHX2I3LXRV4G7A.jpg",
         "name": "Nga",
+        "company": "viettalent",
+
         "mobile": "+8464553456",
         "work": "+846464646",
         "iphone": "+84463465465",
@@ -26,6 +31,8 @@
     {
         "avatar": "https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png",
         "name": "Nhật 2",
+        "company": "viettalent",
+
         "mobile": "+8425634646",
         "work": "+8419485467",
         "iphone": "+8453654646",
@@ -34,6 +41,8 @@
     {
         "avatar": "https://bilder.t-online.de/b/87/91/25/56/id_87912556/tid_da/mark-zuckerberg-als-facebook-avatar-in-dem-sozialen-netzwerk-koennen-nutzer-jetzt-ihr-zweites-ich-in-3d-erschaffen-.jpg",
         "name": "Long",
+        "company": "viettalent",
+
         "mobile": "+84263764575",
         "work": "+8464645656",
         "iphone": "+8453646346",
