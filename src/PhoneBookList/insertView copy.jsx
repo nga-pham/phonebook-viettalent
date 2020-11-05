@@ -62,12 +62,6 @@ class _FormInsert extends Component {
 
     this.state = {
       open: false,
-    };
-  }
-
-  handleOpen = () => {
-    this.setState({
-      open: true,
       new_item: {
         firstName: "",
         lastName: "",
@@ -76,6 +70,12 @@ class _FormInsert extends Component {
         iphone: "",
         note: "",
       },
+    };
+  }
+
+  handleOpen = () => {
+    this.setState({
+      open: true,
     });
   };
 
@@ -87,9 +87,10 @@ class _FormInsert extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    this.setState({
+    // console.log(name);
+    /* this.setState({
       new_item: {...this.state.new_item, new_item[name]: value}
-    })
+    }) */
   };
 
   // input data here is slightly different with data from store
@@ -105,7 +106,8 @@ class _FormInsert extends Component {
     };
   };
 
-  handleSubmit = () => {
+  // Close modal and update data to store
+  handleSubmit = (e) => {
     this.handleClose();
   };
 
