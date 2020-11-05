@@ -42,7 +42,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm stop`
 
-Stop the app in the development mode.\
+Stop the app in the development mode.
 
 ## Results
 

@@ -9,12 +9,7 @@ import Edit from "@material-ui/icons/Edit";
 import { useState } from "react";
 import { fade, makeStyles } from "@material-ui/core";
 import { connect } from "react-redux";
-// import ReactAutocomplete from "react-autocomplete";
-
-// import Autocomplete from "@material-ui/lab/Autocomplete";
-
-// import { AutoComplete } from "material-ui/lab/AutoComplete";
-// import AutoComplete from "material-ui/AutoComplete";
+import { searchItems } from "../PhoneBookList/action";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -91,7 +86,9 @@ const _NavBar = (props) => {
   };
 
   const handleInputChange = (e) => {
-    setValue(e.target.value);
+    const new_value = e.target.value;
+    setValue(new_value);
+    props.searchItems(new_value);
   };
 
   return (
@@ -119,6 +116,8 @@ const _NavBar = (props) => {
               input: classes.inputInput,
             }}
             inputProps={{ "aria-label": "search" }}
+            value={value}
+            onChange={(e) => handleInputChange(e)}
           />
         </div>
         <div className={classes.sectionDesktop}>
@@ -141,12 +140,18 @@ const _NavBar = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { key, data } = state;
+  const { data } = state;
   return {
     data,
   };
 };
 
-const NavBar = connect(mapStateToProps, null)(_NavBar);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchItems: (search_query) => dispatch(searchItems(search_query)),
+  };
+};
+
+const NavBar = connect(mapStateToProps, mapDispatchToProps)(_NavBar);
 
 export default NavBar;

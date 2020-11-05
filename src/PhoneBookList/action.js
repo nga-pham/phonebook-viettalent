@@ -1,4 +1,4 @@
-import { CHOOSE, ADD } from "../data/constant";
+import { CHOOSE, ADD, SEARCH } from "../data/constant";
 
 const chooseItem = (key) => {
   return {
@@ -14,4 +14,11 @@ const addNewItem = (new_item) => {
   };
 };
 
-export { chooseItem, addNewItem };
+const searchItems = (search_query) => {
+  return {
+    type: SEARCH,
+    search_query,
+  };
+};
+
+export { chooseItem, addNewItem, searchItems };
