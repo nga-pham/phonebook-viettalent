@@ -8,6 +8,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import Edit from "@material-ui/icons/Edit";
 import { useState } from "react";
 import { fade, makeStyles } from "@material-ui/core";
+import { connect } from "react-redux";
+// import ReactAutocomplete from "react-autocomplete";
+
+// import Autocomplete from "@material-ui/lab/Autocomplete";
+
+// import { AutoComplete } from "material-ui/lab/AutoComplete";
+// import AutoComplete from "material-ui/AutoComplete";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -74,13 +81,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NavBar = () => {
+const _NavBar = (props) => {
   const classes = useStyles();
-  const [edit, setEdit] = useState(true);
+  const [edit, setEdit] = useState(true); // Toogle between 'edit' and 'exit'
+  const [value, setValue] = useState("");
 
   const toggleEdit = () => {
     setEdit(!edit);
   };
+
+  const handleInputChange = (e) => {
+    setValue(e.target.value);
+  };
+
   return (
     <AppBar position="static" color="transparent">
       <Toolbar>
@@ -126,5 +139,14 @@ const NavBar = () => {
     </AppBar>
   );
 };
+
+const mapStateToProps = (state) => {
+  const { key, data } = state;
+  return {
+    data,
+  };
+};
+
+const NavBar = connect(mapStateToProps, null)(_NavBar);
 
 export default NavBar;

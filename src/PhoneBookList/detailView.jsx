@@ -61,22 +61,33 @@ class _ItemDetailCard extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps);
-    if (this.props.key !== nextProps.key) return true;
+    if (this.props.index !== nextProps.index) return true;
     else return false;
   }
 
-  componentDidUpdate() {
-    console.log("rerender");
-  }
+  componentDidUpdate() {}
 
   render() {
-    const { classes } = this.props;
+    const { classes, index, data } = this.props;
+
+    // Render the chosen item
+    const chosenItem = data[index];
+
+    // Those data are used to map the chosenItem to table cell
+    const createData = (label, content) => {
+      return {
+        label,
+        content,
+      };
+    };
+
+    const rows = [
+      createData("Di động", chosenItem.mobile),
+      createData("Công việc", chosenItem.work),
+      createData("Iphone", chosenItem.iphone),
+    ];
+
     return (
       <Grid container>
         <Grid item xs={12} className={classes.root}>
@@ -84,12 +95,12 @@ class _ItemDetailCard extends Component {
             <Grid item xs={2}>
               <Avatar
                 alt="name"
-                src="https://i.insider.com/5dbc7a5184991317e30e8b4b?width=900&format=jpeg&auto=webp"
+                src={chosenItem.avatar}
                 className={classes.avatar}
               />
             </Grid>
             <Grid item xs={10}>
-              <h2>Name</h2>
+              <h2>{chosenItem.name}</h2>
             </Grid>
           </Grid>
         </Grid>
@@ -134,10 +145,9 @@ class _ItemDetailCard extends Component {
                   Ghi chú
                 </TableCell>
 
-                <TableCell
-                  align="left"
-                  className={classes.tableCellContent}
-                ></TableCell>
+                <TableCell align="left" className={classes.tableCellContent}>
+                  {chosenItem.note}
+                </TableCell>
               </TableRow>
             </TableBody>
           </Grid>
@@ -151,7 +161,7 @@ class _ItemDetailCard extends Component {
 const mapStateToProps = (state) => {
   const { key, data } = state;
   return {
-    key: 1,
+    index: key,
     data,
   };
 };
