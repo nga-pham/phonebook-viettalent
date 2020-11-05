@@ -71,6 +71,7 @@ class _FormInsert extends Component {
       new_item: {
         firstName: "",
         lastName: "",
+        company: "",
         mobile: "",
         work: "",
         iphone: "",
@@ -87,17 +88,20 @@ class _FormInsert extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+    let new_value = this.state.new_item;
+    new_value[name] = value;
     this.setState({
-      new_item: {...this.state.new_item, new_item[name]: value}
-    })
+      new_item: new_value,
+    });
   };
 
   // input data here is slightly different with data from store
   // This function is used to convert data to the same format with data from store
   prepareToSubmit = (data) => {
-    const { firstName, lastName, mobile, work, iphone, note } = data;
+    const { firstName, lastName, company, mobile, work, iphone, note } = data;
     return {
       name: firstName + " " + lastName,
+      company,
       mobile,
       work,
       iphone,
@@ -107,17 +111,10 @@ class _FormInsert extends Component {
 
   handleSubmit = () => {
     this.handleClose();
+    const { new_item } = this.state;
+    const data_to_submit = this.prepareToSubmit(new_item);
+    console.log(data_to_submit);
   };
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextState.new_item !== this.state.new_item) {
-      return true;
-    } else return false;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    console.log(this.state.new_item);
-  }
 
   render() {
     const { classes } = this.props;
