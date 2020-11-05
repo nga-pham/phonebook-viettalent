@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+This project demonstrates second-round inteview with Viettalent company, for the position Frontend Developer.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Installation
+
+To run project properly, you need to install the following framework and libraries:
+
+- node.js
+- create-react-app: See [installation](https://reactjs.org/docs/create-a-new-react-app.html)
+- redux: See [installation](https://redux.js.org/introduction/installation)
+- react-redux: See [installation](https://redux.js.org/introduction/installation)
+- redux-logger: See [installation](https://www.npmjs.com/package/redux-logger)
+- material-ui: See [installation](https://material-ui.com/getting-started/installation/)
 
 ## Available Scripts
 
@@ -29,42 +40,24 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm stop`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Stop the app in the development mode.\
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Results
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+I have successfully implemented the dropdown that satisfy these requirements:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Display phonebook list.
+- Add new contact.
 
-## Learn More
+## Issues
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Due to limited effort, the following components are not fully implemented:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Edit a contact.
+- Delete a contact.
+- Find a contact by name or mobile/phone number.
+- Add new contact:
+  - Cannot choose avatar from computer.
+  - Cannot add more mobile/phone number.
