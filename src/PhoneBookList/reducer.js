@@ -27,7 +27,6 @@ const listReducer = (state = { key: 0, data: data }, action) => {
 
     case SEARCH:
       const { search_query } = action;
-      console.log(search_query);
       if (search_query.length !== 0) {
         // search by name
         let new_data = state.data.filter((item) => {
@@ -35,6 +34,15 @@ const listReducer = (state = { key: 0, data: data }, action) => {
             item.name.toLowerCase().indexOf(search_query.toLowerCase()) !== -1
           );
         });
+        if (new_data.length === 0) {
+          new_data = state.data.filter((item) => {
+            return (
+              item.mobile.indexOf(search_query) !== -1 ||
+              item.work.indexOf(search_query) !== -1 ||
+              item.iphone.indexOf(search_query) !== -1
+            );
+          });
+        }
 
         return {
           ...state,

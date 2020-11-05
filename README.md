@@ -50,6 +50,7 @@ I have successfully implemented the dropdown that satisfy these requirements:
 
 - Display phonebook list.
 - Add new contact.
+- Find a contact by name or mobile/phone number.
 
 ## Issues
 
@@ -57,7 +58,8 @@ Due to limited effort, the following components are not fully implemented:
 
 - Edit a contact.
 - Delete a contact.
-- Find a contact by name or mobile/phone number.
+- Find a contact by name or mobile/phone number:
+  - Cannot reset the list if search query is empty.
 - Add new contact:
   - Cannot choose avatar from computer.
   - Cannot add more mobile/phone number.
