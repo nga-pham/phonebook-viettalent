@@ -22,8 +22,7 @@ const listReducer = (state = { key: 0, data: data }, action) => {
     case ADD:
       return {
         ...state,
-        // addItemReducer({}, action)
-        data: [...data, addItemReducer({}, action)],
+        data: [...state.data, addItemReducer({}, action)],
       };
     default:
       return state;

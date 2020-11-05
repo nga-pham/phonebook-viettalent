@@ -5,7 +5,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core";
-import data from "../data/response.json"; // Retrieve data from json file
 import { chooseItem } from "./action";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +28,8 @@ function _PhoneBookList(props) {
   const chooseItem = (index) => {
     props.chooseItem(index);
   };
+
+  const { data } = props;
   return (
     <List
       component="nav"
@@ -50,12 +51,22 @@ function _PhoneBookList(props) {
   );
 }
 
+const mapStateToProps = (state) => {
+  const { data } = state;
+  return {
+    data,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     chooseItem: (key) => dispatch(chooseItem(key)),
   };
 };
 
-const PhoneBookList = connect(null, mapDispatchToProps)(_PhoneBookList);
+const PhoneBookList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(_PhoneBookList);
 
 export default PhoneBookList;

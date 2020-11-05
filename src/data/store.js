@@ -4,6 +4,6 @@ import listReducer from "../PhoneBookList/reducer";
 
 // const store = createStore(listReducer, applyMiddleware(logger));
 const store = createStore(listReducer);
-store.subscribe(() => console.log(store.getState()));
+// store.subscribe(() => console.log(store.getState()));
 
 export default store;
